@@ -163,8 +163,8 @@
 	// 새 정보 정의
 	const birds = [
 		{
-			position: { x: -0.2, y: 0.3 },
-			velocity: { x: 0.3, y: -0.15 },
+			position: { x: -0.2, y: 0.9 },
+			velocity: { x: 0.9, y: -0.15 },
 			scale: 0.12,
 			alpha: 0.9,
 			animSpeed: 12, // 프레임 속도
@@ -173,18 +173,18 @@
 		{
 			position: { x: 0.4, y: -0.2 },
 			velocity: { x: -0.25, y: -0.1 },
-			scale: 0.09,
-			alpha: 0.85,
+			scale: 0.08,
+			alpha: 0.5,
 			animSpeed: 10,
 			moveSpeed: 0.9,
 		},
 		{
 			position: { x: 0.0, y: -0.4 },
 			velocity: { x: 0.2, y: 0.25 },
-			scale: 0.08,
-			alpha: 0.8,
-			animSpeed: 14,
-			moveSpeed: 1.5,
+			scale: 0.07,
+			alpha: 0.7,
+			animSpeed: 20,
+			moveSpeed: 2.9,
 		},
 	];
 
@@ -213,7 +213,7 @@
 
 			// 진행 방향에 따른 회전 업데이트 (반전 방지)
 			const angle = Math.atan2(bird.velocity.y, bird.velocity.x);
-			bird.rotation = bird.velocity.x >= 0 ? angle : Math.PI + angle;
+			bird.rotation = angle;
 
 			// 가끔 방향 무작위 변경
 			if (Math.random() < 0.002) {
@@ -227,7 +227,7 @@
 	function drawBird(bird, currentFrame) {
 		// 1:1 비율 유지하면서 회전 및 크기 적용
 		const aspectRatio = canvas.width / canvas.height;
-		const scale = bird.scale * (aspectRatio > 1 ? 1 : aspectRatio);
+		const scale = bird.scale;
 		const c = Math.cos(bird.rotation);
 		const s = Math.sin(bird.rotation);
 

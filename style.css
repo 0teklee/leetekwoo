@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Playfair+Display:wght@600&family=Song+Myung&family=Zen+Antique&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+SC&family=Playfair+Display:wght@600&family=Song+Myung&family=Zen+Antique&family=Zen+Kaku+Gothic+New&display=swap");
 
 :root {
 	--mobile: 600px;
@@ -7,7 +7,7 @@
 	--accent: 170 70% 50%;
 }
 
-@layer layout {
+@layer base {
 	:root {
 		background-color: hsl(var(--background));
 		color: hsl(var(--foreground));
@@ -19,6 +19,16 @@
 		}
 	}
 
+	[lang="ja"] {
+		font-family: "Zen Kaku Gothic New", sans-serif;
+	}
+
+	[lang="zh"] {
+		font-family: "Noto Serif SC", serif;
+	}
+}
+
+@layer layout {
 	main {
 		max-width: 900px;
 		margin: 0 auto;
@@ -69,7 +79,7 @@
 	}
 
 	rt {
-		font-size: 0.5rem;
+		font-size: 0.6rem;
 		font-weight: 400;
 	}
 
@@ -145,14 +155,12 @@
 	}
 	.song-myung {
 		font-family: "Song Myung", serif;
-		font-display: swap;
 		font-weight: 400 !important;
 	}
 	.note-font {
-		font-family: "Playfair Display";
+		font-family: "Playfair Display", serif;
 		font-weight: 400;
 		font-size: 1.8em;
-		font-display: swap;
 		cursor: help;
 	}
 }
